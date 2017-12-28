@@ -1,0 +1,17 @@
+.corners {
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: 40px 10px;
+    padding: 5px 20px;
+    font-size: small;
+    border-radius: 5px;
+}
+
+.corner-head {
+    margin: -14px 0px 15px 0px;
+    text-align: center;
+    border: 1px solid beige;
+    border-radius: 5px;
+    width: 50%;
+    background-color: white;
+}

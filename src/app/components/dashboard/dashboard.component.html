@@ -1,0 +1,8 @@
+<div class="grid grid-pad">
+  <div *ngFor="let link of links" class="col-1-4" >
+    <div class="module client">
+      <a routerLink="/{{link.url}}"><h4>{{link.name}}</h4></a>
+    </div>
+  </div>
+  <div></div>
+</div>

@@ -1,0 +1,19 @@
+<div *ngIf="client">
+  <div class="corners">
+    <div class="corner-head">Client Information</div>
+    <div> <b>ID:</b> {{client.id}}</div>
+    <div> <b>Name: </b>{{client.name | uppercase }} </div>
+    <div> <b>Description: </b>{{client.description }} </div>
+    <div> <b>Agreements: </b>{{client.name | uppercase }} </div>
+    <div> <b>Customisation:</b> {{client.name | uppercase }} </div>
+  </div>
+  <div class="corners">
+    <div class="corner-head">Site Information</div>
+    <div> <b>Region: </b>{{client.region | uppercase }} </div>
+    <div> <b>Country of Origin: </b>{{client.countryOfOrigin | uppercase }} </div>
+    <div> <b>Agreements: </b>{{client.name | uppercase }} </div>
+    <div> <b>URI:</b> {{client.uri}} </div>
+  </div>
+</div>
+<!-- *ngIf="client" -->
+<button (click)="goBack()">Back</button>

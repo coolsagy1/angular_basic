@@ -1,0 +1,82 @@
+<!-- <form #siteInfoForm="ngForm" class="editForm" novalidate>
+  <div class="form-horizontal">
+    <h4 class="head text-center">{{title}}</h4>
+    <br/>
+    SiteInfo:{{siteinfo.length}}
+ <div *ngFor="let site of siteinfo; let i = index;">
+    <div class='row'>        
+        <div class='col-xs-offset-4 col-xs-10 col-sm-offset-5 col-sm-4'>
+            Site {{site.sitename}}
+            <label class="control-label" for="sitename">Site Name </label>
+            <input class="form-control input-md" #site.sitename="ngModel" required id="site.sitename" 
+            name="sitename" type="text" placeholder="Site Name" [(ngModel)]="site.sitename">
+            <div class="alert alert-danger" [hidden]="site.sitename.valid">Site Name is required</div>
+            
+          <label class="control-label" for="defaultLocale">Site Default Locale</label>
+            <input class="form-control input-md" #defaultLocale="ngModel" required id="site.defaultLocale" 
+            name="site.defaultLocale" type="text" placeholder="Site Default Locale" [(ngModel)]="site.defaultLocale">
+            <div class="alert alert-danger" [hidden]="site.defaultLocale.valid">Site Default Locale is required</div>
+          
+          <label class="control-label" for="configurations">Site Configurations</label>
+            <input class="form-control input-md" #configurations="ngModel" id="site.configurations" 
+            name="site.configurations" type="text" placeholder="Site Configurations" [(ngModel)]="site.configurations">
+        </div>
+    </div>
+    </div>
+    <button (click)="addNewSite()">Add New Site</button>
+    <div class="form-group text-center space-20">
+      <button class="btn btn-outline-rounded btn-default" (click)="goToPrevious(siteInfoForm)"> 
+        <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button>
+
+      <button class="btn btn-outline-rounded btn-info" [disabled]="!siteInfoForm.valid" (click)="goToNext(siteInfoForm)"> 
+        Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+    </div>
+  </div>
+</form> -->
+<div>{{siteinfo}}</div>
+<form [formGroup]="addForm" novalidate>
+<div formArrayName="siteArray"></div>
+<div *ngFor="let address of addForm.controls.siteArray.controls; let i=index">
+<div>
+
+</div>
+<div [formGroupName]="i">
+<input type="text" placeholder="Enter Site Name" formControlName="siteName">
+<input type="text" placeholder="Enter Site Address" formControlName="siteAddress">
+</div>
+</div>
+<div><a (click)="addSite()">Add Link</a></div>
+<button (click)=save(addForm)>ASD</button>
+</form>
+<form [formGroup]="myForm" (ngsubmit)="save()" novalidate> 
+
+    <div class="form-group">
+      <label>Name</label>
+      <input type="name"
+             class="form-control"
+             formControlName="name" 
+             required>
+    </div>
+  
+    <div class="form-group">
+      <label>Locale</label>
+      <input type="locale"
+             class="form-control"
+             formControlName="locale" 
+             required>
+    </div>
+
+    <fieldset formGroupName="configurations">  
+        <div class="form-group">
+          <label>config key</label>
+          <input type="text" class="form-control" formControlName="configKeys" required>
+        </div>
+    
+        <div class="form-group">
+          <label>config value</label>
+          <input type="text" class="form-control" formControlName="configValue" required>
+        </div>
+      </fieldset>
+      <div><a (click)="addConfig()">Add Config</a></div>
+      <button type="submit">Submit</button>
+  </form>

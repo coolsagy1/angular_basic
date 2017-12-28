@@ -1,0 +1,51 @@
+<form #clientInfoForm="ngForm" class="editForm" novalidate>
+  <div class="tab-pane fade in active">
+    <h4 class="head text-center">{{title}}</h4>
+    <br/>
+    <div class='row'>
+      <div class='col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8'>
+
+        <div class="form-group">
+          <label class="control-label" for="name">Client Name</label>
+          <input class="form-control input-md" #name="ngModel" required id="name" name="name" type="text" placeholder="Client Name" [(ngModel)]="clientinfo.name">
+          <div class="alert alert-danger" [hidden]="name.valid">Client Name is required</div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="region">Region</label><br>
+          <select #region="ngModel" required id="region" name="region" type="text" placeholder="Region" [(ngModel)]="clientinfo.region">
+              <option selected disabled>Select Region</option>
+              <option value="GLB">Global</option>
+              <option value="JP">Japan</option>
+              <option value="OTH">Othes</option>
+          </select>
+          <div class="alert alert-danger" [hidden]="region.valid">Region is required</div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="countryOfOrigin">Country Of Origin</label>
+          <input class="form-control input-md" #countryOfOrigin="ngModel" required id="countryOfOrigin" name="countryOfOrigin" type="text" placeholder="countryOfOrigin" [(ngModel)]="clientinfo.countryOfOrigin">
+          <div class="alert alert-danger" [hidden]="countryOfOrigin.valid">Country Of Origin is required</div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="description">Description</label>
+          <input class="form-control input-md" #description="ngModel" id="description" name="description" type="text" placeholder="description" [(ngModel)]="clientinfo.description">
+          <div class="alert alert-danger" [hidden]="description.valid">Description is required</div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="legacyGroupId">legacyGroupId</label>
+          <input class="form-control input-md" #legacyGroupId="ngModel" id="legacyGroupId" name="legacyGroupId" type="text" placeholder="legacyGroupId" [(ngModel)]="clientinfo.legacyGroupId">
+          <div class="alert alert-danger" [hidden]="legacyGroupId.valid">legacyGroupId is required</div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="uri">URI</label>
+          <!-- type="url" -->
+          <input class="form-control input-md" #uri="ngModel" required id="uri" name="uri" type="text"  placeholder="uri" [(ngModel)]="clientinfo.uri">
+          <div class="alert alert-danger" [hidden]="uri.valid">URI is required</div>
+        </div>
+
+        <div class="form-group text-center">
+          <button class="btn btn-success btn-outline-rounded btn-info" [disabled]="!clientInfoForm.valid" (click)="goToNext(clientInfoForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
